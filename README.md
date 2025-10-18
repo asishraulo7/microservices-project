@@ -27,8 +27,10 @@ or
 STEP-3: Create EKS Cluster
 create cluster:
 eksctl create cluster --name=EKS-1 --region=ap-south-1 --zones=ap-south-1a,ap-south-1b --without-nodegroup
+
 Attach IAM Role:
 eksctl utils associate-iam-oidc-provider --region ap-south-1 --cluster EKS-1 --approve
+
 create NodeGroup:
 eksctl create nodegroup --cluster=EKS-1 --region=ap-south-1 --name=node2 --node-type=t3.medium --nodes=3 -
 -nodes-min=2 --nodes-max=4 --node-volume-size=20 --ssh-access --ssh-public-key=mustafakey-pair --
